@@ -1,0 +1,73 @@
+-- Table: Students
+CREATE TABLE Students (
+    StudentID VARCHAR(10) PRIMARY KEY,
+    StudentName VARCHAR(50)
+);
+
+-- Insert 20 students
+INSERT INTO Students VALUES
+('MCT-201','Ahmad'),
+('MCT-202','Sara'),
+('MCT-203','Ali'),
+('MCT-204','Fatima'),
+('MCT-205','Omar'),
+('MCT-206','Ayesha'),
+('MCT-207','Hassan'),
+('MCT-208','Maryam'),
+('MCT-209','Zain'),
+('MCT-210','Laila'),
+('MCT-211','Bilal'),
+('MCT-212','Noor'),
+('MCT-213','Hamza'),
+('MCT-214','Sana'),
+('MCT-215','Yasir'),
+('MCT-216','Amina'),
+('MCT-217','Imran'),
+('MCT-218','Hira'),
+('MCT-219','Saad'),
+('MCT-220','Iqra');
+
+-- Table: Teachers
+CREATE TABLE Teachers (
+    TeacherID VARCHAR(10) PRIMARY KEY,
+    TeacherName VARCHAR(50)
+);
+
+-- Insert 2 teachers (example)
+INSERT INTO Teachers VALUES
+('TCH-01','Mr. Ahmed'),
+('TCH-02','Ms. Fatima');
+
+-- Table: Attendance
+CREATE TABLE Attendance (
+    AttendanceID INT PRIMARY KEY,
+    StudentID VARCHAR(10),
+    TeacherID VARCHAR(10),
+    Date DATE,
+    AttendanceStatus INT,
+    FOREIGN KEY (StudentID) REFERENCES Students(StudentID),
+    FOREIGN KEY (TeacherID) REFERENCES Teachers(TeacherID)
+);
+
+-- Insert Attendance Records (example: 20 records for 5 days)
+INSERT INTO Attendance VALUES
+(1,'MCT-201','TCH-01','2025-01-01',1),
+(2,'MCT-202','TCH-01','2025-01-01',0),
+(3,'MCT-203','TCH-01','2025-01-01',1),
+(4,'MCT-204','TCH-01','2025-01-01',1),
+(5,'MCT-205','TCH-01','2025-01-01',0),
+(6,'MCT-206','TCH-02','2025-01-02',1),
+(7,'MCT-207','TCH-02','2025-01-02',1),
+(8,'MCT-208','TCH-02','2025-01-02',0),
+(9,'MCT-209','TCH-02','2025-01-02',1),
+(10,'MCT-210','TCH-02','2025-01-02',1),
+(11,'MCT-211','TCH-01','2025-01-03',1),
+(12,'MCT-212','TCH-01','2025-01-03',0),
+(13,'MCT-213','TCH-01','2025-01-03',1),
+(14,'MCT-214','TCH-01','2025-01-03',1),
+(15,'MCT-215','TCH-01','2025-01-03',0),
+(16,'MCT-216','TCH-02','2025-01-04',1),
+(17,'MCT-217','TCH-02','2025-01-04',1),
+(18,'MCT-218','TCH-02','2025-01-04',0),
+(19,'MCT-219','TCH-02','2025-01-04',1),
+(20,'MCT-220','TCH-02','2025-01-04',1);
